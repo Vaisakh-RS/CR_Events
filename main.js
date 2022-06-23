@@ -1,300 +1,179 @@
-const main = async() => {
-    const query = `
-    query MyQuery {
-        eventsCr(first: 500) {
-            id
-            venue
-            registerLink
-            rulesAndRegulations
-            registerFee
-            eventName
-            eventDay
-            eventDescriptions {
-                text
-            }
-            date
-            image {
-                url
-            }
-        }
-    }
-`
-
-    const res = await fetch('https://api-ap-south-1.graphcms.com/v2/cl4ivz33z4hql01z6ew8092vt/master', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-            Accept: 'applciation/json'
-        },
-        body: JSON.stringify({
-            query
-        })
-    });
-
-    const data = await res.json()
-    const eventsList = data.data.eventsCr
-
-    let dummyEvents = [
-        [],
-        [],
-        []
-    ]
-
-    for (const e of eventsList) {
-        const ed = Number(e.eventDay[e.eventDay.length - 1])
-
-        e.eventDescriptions.text = e.eventDescriptions.text.replaceAll('\\n', '<br /> <br />')
-
-        dummyEvents[ed - 1].push(e)
-    }
-
-    const dayText = document.querySelector('#day-grid-number')
-
-    const dayPrev = () => {
-        if (day == 1) {
-            return;
-        }
-
-        nextButton.disabled = false
-        day--;
-
-        moveDay(prevButton);
-    }
-
-    const dayNext = () => {
-        if (day == 2) {
-            return;
-        }
-
-        prevButton.disabled = false
-        day++;
-
-        moveDay(nextButton);
-    }
-
-    let left = 0
-
-    const build = (button) => {
-        let ix = 0
-        for (const event of events) {
-            eventsSlide.innerHTML += `
-                <div class="slide__item" data-id="${ix}">
-                    <div class="slide__item-inner">
-                        <div class="slide__item-details">
-                            <h1>${event.eventName}</h1>
-                            <a href="${event.rulesAndRegulations}">rules and regulations</a>
-                            <p>${event.eventDescriptions.text}</p>
-                            <a class="register-button" href="${event.registerLink}" target="_blank">
-                                <button>Register</button>
-                            </a>
-                        </div>
-                        <img src="${event.image.url}" />
-                    </div>
-                    <div class="slide__item-content">
-                        <h1 class="slide__item-title">${event.eventName}</h1>
-                    </div>
-                </div> 
-            `
-        }
-
-        let i = 0
-        for (const node of eventsSlide.children) {
-            node.style.transition = `transform 300ms ${i * 200}ms, opacity 300ms ${i * 200}ms`
-            i++
-        }
-
-        setTimeout(() => {
-            for (const node of eventsSlide.children) {
-                node.classList.add('slide-event-in')
-            }
-
-            if (button) {
-                button.disabled = false
-
-                if (day == 2) {
-                    nextButton.disabled = true
-                }
-
-                if (day == 1) {
-                    prevButton.disabled = true
-                }
-            }
-        }, 100)
-
-        left = 0
-    }
-
-    const moveDay = (button) => {
-        let i = 0
-        for (const node of eventsSlide.children) {
-            node.style.transition = `transform 300ms ${i * 200}ms, opacity 300ms ${i * 200}ms`
-            node.classList.add('slide-event-out')
-            i++
-        }
-
-        dayText.innerHTML = String(day)
-
-        events = get()
-        button.disabled = true
-
-        setTimeout(() => {
-            eventsSlide.innerHTML = ''
-            build(button)
-        }, 300 + 200 * Math.min(4, eventsSlide.children.length))
-    }
-
-    const get = () => {
-        return dummyEvents[day - 1]
-    }
-
-    let day = 1
-    let events = get()
-
-    const eventsSlide = document.querySelector('#events__slide')
-    const eventsSlideContainer = document.querySelector('#events__slide-container')
-
-    const prevButton = document.querySelector('#day-grid-button1')
-    prevButton.addEventListener('click', dayPrev)
-    prevButton.disabled = true
-
-    const nextButton = document.querySelector('#day-grid-button2')
-    nextButton.addEventListener('click', dayNext)
-
-    let auto = 75
-    let vel = auto
-    let fac = 175
-    let decel = 2000
-    let initialLeft = left
-
-    build(null)
-
-    let dragging = false
-
-    document.addEventListener('mouseup', () => dragging = false)
-    eventsSlideContainer.addEventListener('mousedown', () => dragging = true)
-
-    let deltaTime = 0
-
-    eventsSlideContainer.addEventListener('mousemove', (e) => {
-        e.preventDefault()
-
-        if (!dragging)
-            return
-
-        vel += e.movementX * fac * deltaTime
-    })
-
-    let last = null
-    eventsSlideContainer.addEventListener('touchstart', (e) => last = e.touches[0].clientX)
-
-    eventsSlideContainer.addEventListener('touchmove', (e) => {
-        let delta = e.touches[0].clientX - last
-        vel += delta * fac * deltaTime * 2.0
-
-        last = e.touches[0].clientX;
-    });
-
-    let time = new Date().getTime()
-
-    let animation = () => {
-        let curTime = new Date().getTime()
-        deltaTime = (curTime - time) / 1000
-        time = curTime
-
-        if (eventsSlide.children.length == 0) {
-            return window.requestAnimationFrame(animation)
-        }
-
-        const childBounds = eventsSlide.children[0].getBoundingClientRect()
-        const childComputedStyle = window.getComputedStyle(eventsSlide.children[0]);
-        const childMargin = parseInt(childComputedStyle.marginRight);
-
-        if (vel < 0) {
-            vel = Math.min(-auto, vel + deltaTime * decel)
-        } else {
-            vel = Math.max(-auto, vel - deltaTime * decel)
-        }
-
-        left += deltaTime * vel
-
-        if (eventsSlide.children.length <= 3) {
-            left = Math.min(initialLeft, left);
-            left = Math.max(-eventsSlide.scrollWidth + 0.5 * document.documentElement.clientWidth, left)
-        }
-
-        eventsSlide.style.left = String(left) + "px"
-
-        if (eventsSlide.children.length <= 3) {
-            return window.requestAnimationFrame(animation)
-        }
-
-        if (childBounds.left < -childBounds.width - childMargin) {
-            const ele = eventsSlide.children[0]
-            const ele2 = eventsSlide.children[1]
-
-            left = ele2.getBoundingClientRect().left - childMargin
-            eventsSlide.style.left = String(left) + 'px'
-            ele.remove()
-            eventsSlide.appendChild(ele)
-        }
-
-        if (childBounds.left > initialLeft + childMargin) {
-            const ele = eventsSlide.children[eventsSlide.children.length - 1]
-            ele.remove()
-
-            eventsSlide.insertBefore(ele, eventsSlide.children[0])
-            left = -ele.getBoundingClientRect().width - 2 * childMargin + vel * deltaTime
-            eventsSlide.style.left = String(left) + "px"
-        }
-
-        return window.requestAnimationFrame(animation)
-    }
-
-    window.requestAnimationFrame(animation)
-
-    eventsSlide.addEventListener('mouseover', () => auto = 0)
-    eventsSlide.addEventListener('mouseleave', () => auto = 75)
-
-    let count = events.length
-
-    for (const event of events) {
-        const url = event.image.url
-        const img = new Image()
-        img.src = url
-
-        img.onload = () => {
-            console.log(`loaded ${url}`)
-
-            if (--count <= 0) {
-                const logo1 = document.querySelector('.logo1')
-                const logo2 = document.querySelector('.logo2')
-                const logo3 = document.querySelector('.logo3')
-                const heroButtons = document.querySelectorAll('.hero__button')
-                const body = document.querySelector('body')
-
-                const loading1 = document.querySelector('#loading1')
-                const loading2 = document.querySelector('#loading2')
-                const loadingIcon = document.querySelector('#loading-icon')
-                const loadingContainer = document.querySelector('#loading-container')
-
-                loading1.style.transform = 'translateX(-100%)'
-                loading2.style.transform = 'translateX(100%)'
-                loadingIcon.style.transform = 'scale(0) rotate(359deg)'
-
-                setTimeout(() => {
-                    logo1.classList.add('animate-logo1')
-                    logo2.classList.add('animate-logo2')
-                    logo3.classList.add('animate-logo3')
-
-                    for (const btn of heroButtons) {
-                        btn.classList.add('animate-hero-button')
-                    }
-
-                    loadingContainer.remove()
-                }, 1000)
-            }
-        }
-    }
-}
-
-main()
+jQuery(document).ready(function ($) {
+	// Back to top button
+	$(window).scroll(function () {
+		if ($(this).scrollTop() > 100) {
+			$(".back-to-top").fadeIn("slow");
+		} else {
+			$(".back-to-top").fadeOut("slow");
+		}
+	});
+	$(window).scroll(function () {
+		if ($(this).scrollTop() < 400) {
+			$(".parent").fadeIn("slow");
+		} else {
+			$(".parent").fadeOut("slow");
+		}
+	});
+	$(".back-to-top").click(function () {
+		$("html, body").animate({ scrollTop: 0 }, 1500, "easeInOutExpo");
+		return false;
+	});
+
+	// Header fixed on scroll
+	$(window).scroll(function () {
+		if ($(this).scrollTop() > 100) {
+			$("#header").addClass("header-scrolled");
+		} else {
+			$("#header").removeClass("header-scrolled");
+		}
+	});
+
+	if ($(window).scrollTop() > 100) {
+		$("#header").addClass("header-scrolled");
+	}
+
+	// Real view height for mobile devices
+	if (window.matchMedia("(max-width: 767px)").matches) {
+		$("#intro").css({ height: $(window).height() });
+	}
+
+	// Initiate the wowjs animation library
+	new WOW().init();
+
+	// Initialize Venobox
+	$(".venobox").venobox({
+		bgcolor: "",
+		overlayColor: "rgba(6, 12, 34, 0.85)",
+		closeBackground: "",
+		closeColor: "#fff",
+	});
+
+	// Initiate superfish on nav menu
+	$(".nav-menu").superfish({
+		animation: {
+			opacity: "show",
+		},
+		speed: 400,
+	});
+
+	// Mobile Navigation
+	if ($("#nav-menu-container").length) {
+		var $mobile_nav = $("#nav-menu-container").clone().prop({
+			id: "mobile-nav",
+		});
+		$mobile_nav.find("> ul").attr({
+			class: "",
+			id: "",
+		});
+		$("body").append($mobile_nav);
+		$("body").prepend(
+			'<button type="button" id="mobile-nav-toggle"><i class="fa fa-bars"></i></button>',
+		);
+		$("body").append('<div id="mobile-body-overly"></div>');
+		$("#mobile-nav")
+			.find(".menu-has-children")
+			.prepend('<i class="fa fa-chevron-down"></i>');
+
+		$(document).on("click", ".menu-has-children i", function (e) {
+			$(this).next().toggleClass("menu-item-active");
+			$(this).nextAll("ul").eq(0).slideToggle();
+			$(this).toggleClass("fa-chevron-up fa-chevron-down");
+		});
+
+		$(document).on("click", "#mobile-nav-toggle", function (e) {
+			$("body").toggleClass("mobile-nav-active");
+			$("#mobile-nav-toggle i").toggleClass("fa-times fa-bars");
+			$("#mobile-body-overly").toggle();
+		});
+
+		$(document).click(function (e) {
+			var container = $("#mobile-nav, #mobile-nav-toggle");
+			if (!container.is(e.target) && container.has(e.target).length === 0) {
+				if ($("body").hasClass("mobile-nav-active")) {
+					$("body").removeClass("mobile-nav-active");
+					$("#mobile-nav-toggle i").toggleClass("fa-times fa-bars");
+					$("#mobile-body-overly").fadeOut();
+				}
+			}
+		});
+	} else if ($("#mobile-nav, #mobile-nav-toggle").length) {
+		$("#mobile-nav, #mobile-nav-toggle").hide();
+	}
+
+	// Smooth scroll for the menu and links with .scrollto classes
+	$(".nav-menu a, #mobile-nav a, .scrollto").on("click", function () {
+		if (
+			location.pathname.replace(/^\//, "") ==
+				this.pathname.replace(/^\//, "") &&
+			location.hostname == this.hostname
+		) {
+			var target = $(this.hash);
+			if (target.length) {
+				var top_space = 0;
+
+				if ($("#header").length) {
+					top_space = $("#header").outerHeight();
+
+					if (!$("#header").hasClass("header-fixed")) {
+						top_space = top_space - 20;
+					}
+				}
+
+				$("html, body").animate(
+					{
+						scrollTop: target.offset().top - top_space,
+					},
+					1500,
+					"easeInOutExpo",
+				);
+
+				if ($(this).parents(".nav-menu").length) {
+					$(".nav-menu .menu-active").removeClass("menu-active");
+					$(this).closest("li").addClass("menu-active");
+				}
+
+				if ($("body").hasClass("mobile-nav-active")) {
+					$("body").removeClass("mobile-nav-active");
+					$("#mobile-nav-toggle i").toggleClass("fa-times fa-bars");
+					$("#mobile-body-overly").fadeOut();
+				}
+				return false;
+			}
+		}
+	});
+
+	// Gallery carousel (uses the Owl Carousel library)
+	$(".gallery-carousel").owlCarousel({
+		autoplay: true,
+		dots: true,
+		loop: true,
+		center: true,
+		responsive: {
+			0: { items: 1 },
+			768: { items: 3 },
+			992: { items: 4 },
+			1200: { items: 5 },
+		},
+	});
+
+	// custom code
+	// Count Down
+	var countDownDate = new Date("June 26, 2022 00:00:00").getTime();
+	var x = setInterval(function () {
+		var now = new Date().getTime();
+		var distance = countDownDate - now;
+		var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+		var hours = Math.floor(
+			(distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60),
+		);
+		var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+		var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+		document.getElementById("days").innerHTML = days;
+		document.getElementById("hours").innerHTML = hours;
+		document.getElementById("minutes").innerHTML = minutes;
+		document.getElementById("seconds").innerHTML = seconds;
+		if (distance < 0) {
+			clearInterval(x);
+		}
+	}, 1000);
+});

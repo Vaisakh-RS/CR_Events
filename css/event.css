@@ -1,0 +1,30 @@
+.main {
+	height: 120vh;
+}
+@media (min-width: 700px) {
+	#event:nth-child(even) {
+		flex-direction: row-reverse;
+	}
+	img {
+		height: 600px;
+		width: 500px;
+	}
+	#event {
+		height: 800px;
+	}
+}
+@media screen and (max-width: 700px) {
+	#event {
+		height: 1000px;
+	}
+	#event div {
+		width: 100%;
+	}
+	img {
+		height: 380px;
+		width: 400px;
+	}
+}
+html {
+	scroll-behavior: smooth;
+}

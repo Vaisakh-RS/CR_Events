@@ -1,102 +1,797 @@
-<!-- c186e5 8f00ff -->
-
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <mjta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Events</title>
-        <link rel="stylesheet" href="./css/main.css">
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;500;900&family=Outfit:wght@900&family=Roboto+Condensed:ital,wght@0,300;0,400;0,700;1,700&family=Roboto:ital,wght@1,100&display=swap" rel="stylesheet">
-        <link rel="preconnect" href="https://fonts.googleapis.com">
+  <meta charset="utf-8" />
+  <title>CROSSROADS - 2022 MBCET</title>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <meta content="" name="keywords" />
+  <meta content="" name="description" />
 
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Manrope&display=swap" rel="stylesheet">
-        <link rel="icon" type="image/png" href="/assets/favicon.png">
+  <!-- Favicons -->
+  <link href="img/favicon.png" rel="icon" />
+  <link href="img/apple-touch-icon.png" rel="apple-touch-icon" />
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Raleway:300,400,500,700,800"
+    rel="stylesheet" />
+
+  <!-- Bootstrap CSS File -->
+  <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+
+  <!-- Libraries CSS Files -->
+  <link href="lib/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+  <link href="lib/animate/animate.min.css" rel="stylesheet" />
+  <link href="lib/venobox/venobox.css" rel="stylesheet" />
+  <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet" />
+
+  <!-- Main Stylesheet File -->
+  <link href="css/style.css" rel="stylesheet" />
+
+  <!-- Tailwind CSS File -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- aos -->
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+  <!-- =======================================================
+    Theme Name: TheEvent
+    Theme URL: https://bootstrapmade.com/theevent-conference-event-bootstrap-template/
+    Author: BootstrapMade.com
+    License: https://bootstrapmade.com/license/
+  ======================================================= -->
 </head>
 
 <body>
-    <div id="loading-container">
-        <div id="loading">
-            <div id="loading1"></div>
-            <div id="loading2"></div>
+  <!--==========================
+    Header
+  ============================-->
+  <header id="header">
+    <div class="container">
+      <div id="logo" class="pull-left">
+        <a href="#intro" class="scrollto"><img src="img/logo.png" alt="" title="" /></a>
+      </div>
+
+      <nav id="nav-menu-container">
+        <ul class="nav-menu">
+          <li class="menu-active"><a href="#intro">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#venue">Venue</a></li>
+          <li><a href="#gallery">Gallery</a></li>
+          <li class="buy-tickets"><a href="/events.html">Events</a></li>
+        </ul>
+      </nav>
+      <!-- #nav-menu-container -->
+    </div>
+  </header>
+  <!-- #header -->
+
+  <!--==========================
+    Intro Section
+  ============================-->
+
+  <section id="intro" class="h-full">
+    <!-- The video -->
+    <video autoplay muted loop id="myVideo">
+      <source src="img/intro-bg.mp4" type="video/mp4" />
+    </video>
+    <div class="intro-container wow fadeIn">
+      <h1 class="mb-4 pb-0" data-aos="zoom-in">CROSSROADS<br /><span>2022</span></h1>
+      <p class="mb-4 pb-0" data-aos="zoom-in">
+        25-27 June, Girideepam Convetion Center, Trivandrum
+      </p>
+      <a href="/events.html" class="about-btn scrollto" data-aos="zoom-in">Register for
+        Events</a>
+      <div class="position-absolute fixed-bottom parent">
+        <div class="mouse_scroll">
+          <div class="mouse">
+            <div class="wheel"></div>
+          </div>
+          <div>
+            <span class="m_scroll_arrows unu"></span>
+            <span class="m_scroll_arrows doi"></span>
+            <span class="m_scroll_arrows trei"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <main id="main">
+
+    <!--==========================
+          About Section
+        ============================-->
+    <section id="about">
+      <div class="container">
+        <div class="section-header" data-aos="zoom-in">
+          <h2 class="text-white">Event Live in</h2>
+        </div>
+        <div class="grid gap-10 grid-cols-7 grid-rows-2 justify-items-center m-6 lg:mx-[25vw]">
+          <h1 id="days" class="text-[150px] text-white"></h1>
+          <div class="square h-2 w-2 border-2 border-white mt-14"></div>
+          <h1 id="hours" class="text-[150px] text-white"></h1>
+          <div class="square h-2 w-2 border-2 border-white mt-14"></div>
+          <h1 id="minutes" class="text-[150px] text-white"></h1>
+          <div class="square h-2 w-2 border-2 border-white mt-14"></div>
+          <h1 id="seconds" class="text-[150px] text-white"></h1>
+          <h1 class="count text-1x">»Days«</h1>
+          <div class="square h-2 w-2 border-2 border-white -mt-14"></div>
+          <h1 class="count text-1x">»Hours«</h1>
+          <div class="square h-2 w-2 border-2 border-white -mt-14"></div>
+          <h1 class="count text-1x">»Minutes«</h1>
+          <div class="square h-2 w-2 border-2 border-white -mt-14"></div>
+          <h1 class="count h-1 text-1x">»Seconds«</h1>
+        </div>
+      </div>
+    </section>
+
+    <!--==========================
+      About Section
+    ============================-->
+    <section id="about">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-6">
+            <h2>About The Event</h2>
+            <p>
+              Crossroads is a national level inter-collegiate cultural and
+              technical fest of Mar Baselios College of Engineering and
+              Technology (MBCET), Trivandrum. Since it's inception in 2005,
+              Crossroads has been conducted annually.
+            </p>
+            <br />
+            <p>
+              Crossroads provides a platform for all college students to
+              showcase their talents and an arena to compete against the best
+              in the country.
+            </p>
+          </div>
+          <div class="col-lg-3">
+            <h3>Where</h3>
+            <p>Girideepam Convetion Center, Trivandrum</p>
+          </div>
+          <div class="col-lg-3">
+            <h3>When</h3>
+            <p>Sunday to Tuesday<br />25-27 June</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!--==========================
+      Speakers Section
+    ============================-->
+    <!-- <section id="speakers" class="wow fadeInUp">
+      <div class="container">
+        <div class="section-header" data-aos="zoom-in">
+          <h2>Event Speakers</h2>
+          <p>Here are some of our speakers</p>
         </div>
 
-        <div id="loading-icon">
-            <img src="./assets/logo1.png" />
+        <div class="row">
+          <div class="col-lg-4 col-md-6">
+            <div class="speaker">
+              <img src="img/speakers/1.jpg" alt="Speaker 1" class="img-fluid" />
+              <div class="details">
+                <h3><a>Brenden Legros</a></h3>
+                <p>Quas alias incidunt</p>
+                <div class="social">
+                  <a href=""><i class="fa fa-twitter"></i></a>
+                  <a href=""><i class="fa fa-facebook"></i></a>
+                  <a href=""><i class="fa fa-google-plus"></i></a>
+                  <a href=""><i class="fa fa-linkedin"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <div class="speaker">
+              <img src="img/speakers/2.jpg" alt="Speaker 2" class="img-fluid" />
+              <div class="details">
+                <h3><a>Hubert Hirthe</a></h3>
+                <p>Consequuntur odio aut</p>
+                <div class="social">
+                  <a href=""><i class="fa fa-twitter"></i></a>
+                  <a href=""><i class="fa fa-facebook"></i></a>
+                  <a href=""><i class="fa fa-google-plus"></i></a>
+                  <a href=""><i class="fa fa-linkedin"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <div class="speaker">
+              <img src="img/speakers/3.jpg" alt="Speaker 3" class="img-fluid" />
+              <div class="details">
+                <h3><a>Cole Emmerich</a></h3>
+                <p>Fugiat laborum et</p>
+                <div class="social">
+                  <a href=""><i class="fa fa-twitter"></i></a>
+                  <a href=""><i class="fa fa-facebook"></i></a>
+                  <a href=""><i class="fa fa-google-plus"></i></a>
+                  <a href=""><i class="fa fa-linkedin"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
+      </div>
+      </div>
+    </section> -->
+
+    <!--==========================
+      Schedule Section
+    ============================-->
+    <!-- <section id="schedule" class="section-with-bg">
+      <div class="container wow fadeInUp">
+        <div class="section-header" data-aos="zoom-in">
+          <h2>Event Schedule</h2>
+          <p>Here is our event schedule</p>
+        </div>
+
+        <ul class="nav nav-tabs" role="tablist">
+          <li class="nav-item">
+            <a class="nav-link active" href="#day-1" role="tab" data-toggle="tab">Day 1</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#day-2" role="tab" data-toggle="tab">Day 2</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#day-3" role="tab" data-toggle="tab">Day 3</a>
+          </li>
+        </ul>
+
+        <h3 class="sub-heading">
+          Voluptatem nulla veniam soluta et corrupti consequatur neque eveniet
+          officia. Eius necessitatibus voluptatem quis labore perspiciatis
+          quia.
+        </h3>
+
+        <div class="tab-content row justify-content-center">
+          <div role="tabpanel" class="col-lg-9 tab-pane fade show active" id="day-1">
+            <div class="row schedule-item">
+              <div class="col-md-2"><time>09:30 AM</time></div>
+              <div class="col-md-10">
+                <h4>Registration</h4>
+                <p>
+                  Fugit voluptas iusto maiores temporibus autem numquam
+                  magnam.
+                </p>
+              </div>
+            </div>
+
+            <div class="row schedule-item">
+              <div class="col-md-2"><time>10:00 AM</time></div>
+              <div class="col-md-10">
+                <div class="speaker">
+                  <img src="img/speakers/1.jpg" alt="Brenden Legros" />
+                </div>
+                <h4>Keynote <span>Brenden Legros</span></h4>
+                <p>Facere provident incidunt quos voluptas.</p>
+              </div>
+            </div>
+
+            <div class="row schedule-item">
+              <div class="col-md-2"><time>11:00 AM</time></div>
+              <div class="col-md-10">
+                <div class="speaker">
+                  <img src="img/speakers/2.jpg" alt="Hubert Hirthe" />
+                </div>
+                <h4>
+                  Et voluptatem iusto dicta nobis. <span>Hubert Hirthe</span>
+                </h4>
+                <p>
+                  Maiores dignissimos neque qui cum accusantium ut sit sint
+                  inventore.
+                </p>
+              </div>
+            </div>
+
+            <div class="row schedule-item">
+              <div class="col-md-2"><time>12:00 AM</time></div>
+              <div class="col-md-10">
+                <div class="speaker">
+                  <img src="img/speakers/3.jpg" alt="Cole Emmerich" />
+                </div>
+                <h4>
+                  Explicabo et rerum quis et ut ea. <span>Cole Emmerich</span>
+                </h4>
+                <p>
+                  Veniam accusantium laborum nihil eos eaque accusantium
+                  aspernatur.
+                </p>
+              </div>
+            </div>
+
+            <div class="row schedule-item">
+              <div class="col-md-2"><time>02:00 PM</time></div>
+              <div class="col-md-10">
+                <div class="speaker">
+                  <img src="img/speakers/4.jpg" alt="Jack Christiansen" />
+                </div>
+                <h4>
+                  Qui non qui vel amet culpa sequi.
+                  <span>Jack Christiansen</span>
+                </h4>
+                <p>Nam ex distinctio voluptatem doloremque suscipit iusto.</p>
+              </div>
+            </div>
+
+            <div class="row schedule-item">
+              <div class="col-md-2"><time>03:00 PM</time></div>
+              <div class="col-md-10">
+                <div class="speaker">
+                  <img src="img/speakers/5.jpg" alt="Alejandrin Littel" />
+                </div>
+                <h4>
+                  Quos ratione neque expedita asperiores.
+                  <span>Alejandrin Littel</span>
+                </h4>
+                <p>
+                  Eligendi quo eveniet est nobis et ad temporibus odio quo.
+                </p>
+              </div>
+            </div>
+
+            <div class="row schedule-item">
+              <div class="col-md-2"><time>04:00 PM</time></div>
+              <div class="col-md-10">
+                <div class="speaker">
+                  <img src="img/speakers/6.jpg" alt="Willow Trantow" />
+                </div>
+                <h4>
+                  Quo qui praesentium nesciunt <span>Willow Trantow</span>
+                </h4>
+                <p>
+                  Voluptatem et alias dolorum est aut sit enim neque
+                  veritatis.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div role="tabpanel" class="col-lg-9 tab-pane fade" id="day-2">
+            <div class="row schedule-item">
+              <div class="col-md-2"><time>10:00 AM</time></div>
+              <div class="col-md-10">
+                <div class="speaker">
+                  <img src="img/speakers/1.jpg" alt="Brenden Legros" />
+                </div>
+                <h4>
+                  Libero corrupti explicabo itaque.
+                  <span>Brenden Legros</span>
+                </h4>
+                <p>Facere provident incidunt quos voluptas.</p>
+              </div>
+            </div>
+
+            <div class="row schedule-item">
+              <div class="col-md-2"><time>11:00 AM</time></div>
+              <div class="col-md-10">
+                <div class="speaker">
+                  <img src="img/speakers/2.jpg" alt="Hubert Hirthe" />
+                </div>
+                <h4>
+                  Et voluptatem iusto dicta nobis. <span>Hubert Hirthe</span>
+                </h4>
+                <p>
+                  Maiores dignissimos neque qui cum accusantium ut sit sint
+                  inventore.
+                </p>
+              </div>
+            </div>
+
+            <div class="row schedule-item">
+              <div class="col-md-2"><time>12:00 AM</time></div>
+              <div class="col-md-10">
+                <div class="speaker">
+                  <img src="img/speakers/3.jpg" alt="Cole Emmerich" />
+                </div>
+                <h4>
+                  Explicabo et rerum quis et ut ea. <span>Cole Emmerich</span>
+                </h4>
+                <p>
+                  Veniam accusantium laborum nihil eos eaque accusantium
+                  aspernatur.
+                </p>
+              </div>
+            </div>
+
+            <div class="row schedule-item">
+              <div class="col-md-2"><time>02:00 PM</time></div>
+              <div class="col-md-10">
+                <div class="speaker">
+                  <img src="img/speakers/4.jpg" alt="Jack Christiansen" />
+                </div>
+                <h4>
+                  Qui non qui vel amet culpa sequi.
+                  <span>Jack Christiansen</span>
+                </h4>
+                <p>Nam ex distinctio voluptatem doloremque suscipit iusto.</p>
+              </div>
+            </div>
+
+            <div class="row schedule-item">
+              <div class="col-md-2"><time>03:00 PM</time></div>
+              <div class="col-md-10">
+                <div class="speaker">
+                  <img src="img/speakers/5.jpg" alt="Alejandrin Littel" />
+                </div>
+                <h4>
+                  Quos ratione neque expedita asperiores.
+                  <span>Alejandrin Littel</span>
+                </h4>
+                <p>
+                  Eligendi quo eveniet est nobis et ad temporibus odio quo.
+                </p>
+              </div>
+            </div>
+
+            <div class="row schedule-item">
+              <div class="col-md-2"><time>04:00 PM</time></div>
+              <div class="col-md-10">
+                <div class="speaker">
+                  <img src="img/speakers/6.jpg" alt="Willow Trantow" />
+                </div>
+                <h4>
+                  Quo qui praesentium nesciunt <span>Willow Trantow</span>
+                </h4>
+                <p>
+                  Voluptatem et alias dolorum est aut sit enim neque
+                  veritatis.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div role="tabpanel" class="col-lg-9 tab-pane fade" id="day-3">
+            <div class="row schedule-item">
+              <div class="col-md-2"><time>10:00 AM</time></div>
+              <div class="col-md-10">
+                <div class="speaker">
+                  <img src="img/speakers/2.jpg" alt="Hubert Hirthe" />
+                </div>
+                <h4>
+                  Et voluptatem iusto dicta nobis. <span>Hubert Hirthe</span>
+                </h4>
+                <p>
+                  Maiores dignissimos neque qui cum accusantium ut sit sint
+                  inventore.
+                </p>
+              </div>
+            </div>
+
+            <div class="row schedule-item">
+              <div class="col-md-2"><time>11:00 AM</time></div>
+              <div class="col-md-10">
+                <div class="speaker">
+                  <img src="img/speakers/3.jpg" alt="Cole Emmerich" />
+                </div>
+                <h4>
+                  Explicabo et rerum quis et ut ea. <span>Cole Emmerich</span>
+                </h4>
+                <p>
+                  Veniam accusantium laborum nihil eos eaque accusantium
+                  aspernatur.
+                </p>
+              </div>
+            </div>
+
+            <div class="row schedule-item">
+              <div class="col-md-2"><time>12:00 AM</time></div>
+              <div class="col-md-10">
+                <div class="speaker">
+                  <img src="img/speakers/1.jpg" alt="Brenden Legros" />
+                </div>
+                <h4>
+                  Libero corrupti explicabo itaque.
+                  <span>Brenden Legros</span>
+                </h4>
+                <p>Facere provident incidunt quos voluptas.</p>
+              </div>
+            </div>
+
+            <div class="row schedule-item">
+              <div class="col-md-2"><time>02:00 PM</time></div>
+              <div class="col-md-10">
+                <div class="speaker">
+                  <img src="img/speakers/4.jpg" alt="Jack Christiansen" />
+                </div>
+                <h4>
+                  Qui non qui vel amet culpa sequi.
+                  <span>Jack Christiansen</span>
+                </h4>
+                <p>Nam ex distinctio voluptatem doloremque suscipit iusto.</p>
+              </div>
+            </div>
+
+            <div class="row schedule-item">
+              <div class="col-md-2"><time>03:00 PM</time></div>
+              <div class="col-md-10">
+                <div class="speaker">
+                  <img src="img/speakers/5.jpg" alt="Alejandrin Littel" />
+                </div>
+                <h4>
+                  Quos ratione neque expedita asperiores.
+                  <span>Alejandrin Littel</span>
+                </h4>
+                <p>
+                  Eligendi quo eveniet est nobis et ad temporibus odio quo.
+                </p>
+              </div>
+            </div>
+
+            <div class="row schedule-item">
+              <div class="col-md-2"><time>04:00 PM</time></div>
+              <div class="col-md-10">
+                <div class="speaker">
+                  <img src="img/speakers/6.jpg" alt="Willow Trantow" />
+                </div>
+                <h4>
+                  Quo qui praesentium nesciunt <span>Willow Trantow</span>
+                </h4>
+                <p>
+                  Voluptatem et alias dolorum est aut sit enim neque
+                  veritatis.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section> -->
+
+    <!--==========================
+      Venue Section
+    ============================-->
+    <section id="venue" class="wow fadeInUp">
+      <div class="container-fluid">
+        <div class="section-header" data-aos="zoom-in">
+          <h2>Event Venue</h2>
+          <p>Event venue location info and gallery</p>
+        </div>
+
+        <div class="row no-gutters">
+          <div class="col-lg-6 venue-map">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3945.4611808158834!2d76.93661811531024!3d8.551573198636735!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b05b93e7d02ff99%3A0x50b3ddce4c7edb1a!2sGirideepam%20Convention%20Centre!5e0!3m2!1sen!2sin!4v1655478695547!5m2!1sen!2sin"
+              frameborder="0" style="border: 0" allowfullscreen></iframe>
+          </div>
+
+          <div class="col-lg-6 venue-info">
+            <div class="row justify-content-center">
+              <div class="col-11 col-lg-8">
+                <h3>Girideepam Convetion Center, Trivandrum</h3>
+                <p>
+                  Situated alongside our campus in the serenity of Bethany
+                  Hills, Girideepam Convention Centre, with great ambience and
+                  an ambit of facilities, is a host to a variety of events
+                  such as seminars, training programs, product launches,
+                  weddings and much more.
+                </p>
+                <br />
+                <p>
+                  CROSSROADS'22 is here to transform Girideepam Convention
+                  Center into a dreamscape.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!--==========================
+      Gallery Section
+    ============================-->
+    <section id="gallery" class="wow fadeInUp">
+      <div class="container">
+        <div class="section-header" data-aos="zoom-in">
+          <h2>Gallery</h2>
+          <p>Check our gallery from the recent events</p>
+        </div>
+      </div>
+
+      <div class="owl-carousel gallery-carousel">
+        <a href="img/gallery/1.webp" class="venobox" data-gall="gallery-carousel"><img src="img/gallery/1.webp"
+            alt="" /></a>
+        <a href="img/gallery/2.webp" class="venobox" data-gall="gallery-carousel"><img src="img/gallery/2.webp"
+            alt="" /></a>
+        <a href="img/gallery/3.webp" class="venobox" data-gall="gallery-carousel"><img src="img/gallery/3.webp"
+            alt="" /></a>
+        <a href="img/gallery/4.webp" class="venobox" data-gall="gallery-carousel"><img src="img/gallery/4.webp"
+            alt="" /></a>
+        <a href="img/gallery/5.webp" class="venobox" data-gall="gallery-carousel"><img src="img/gallery/5.webp"
+            alt="" /></a>
+        <a href="img/gallery/6.webp" class="venobox" data-gall="gallery-carousel"><img src="img/gallery/6.webp"
+            alt="" /></a>
+        <a href="img/gallery/7.webp" class="venobox" data-gall="gallery-carousel"><img src="img/gallery/7.webp" alt=""
+            class="object-cover" /></a>
+        <a href="img/gallery/8.webp" class="venobox" data-gall="gallery-carousel"><img src="img/gallery/8.webp"
+            alt="" /></a>
+      </div>
+    </section>
+
+    <!--==========================
+      Sponsors Section
+    ============================-->
+    <!-- <section id="sponsors" class="section-with-bg wow fadeInUp">
+      <div class="container">
+        <div class="section-header" data-aos="zoom-in">
+          <h2>Sponsors</h2>
+        </div>
+
+        <div class="row no-gutters sponsors-wrap clearfix">
+          <div class="col-lg-3 col-md-4 col-xs-6">
+            <div class="sponsor-logo">
+              <img src="img/sponsors/1.png" class="img-fluid" alt="" />
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-4 col-xs-6">
+            <div class="sponsor-logo">
+              <img src="img/sponsors/2.png" class="img-fluid" alt="" />
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-4 col-xs-6">
+            <div class="sponsor-logo">
+              <img src="img/sponsors/3.png" class="img-fluid" alt="" />
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-4 col-xs-6">
+            <div class="sponsor-logo">
+              <img src="img/sponsors/4.png" class="img-fluid" alt="" />
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-4 col-xs-6">
+            <div class="sponsor-logo">
+              <img src="img/sponsors/5.png" class="img-fluid" alt="" />
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-4 col-xs-6">
+            <div class="sponsor-logo">
+              <img src="img/sponsors/6.png" class="img-fluid" alt="" />
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-4 col-xs-6">
+            <div class="sponsor-logo">
+              <img src="img/sponsors/7.png" class="img-fluid" alt="" />
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-4 col-xs-6">
+            <div class="sponsor-logo">
+              <img src="img/sponsors/8.png" class="img-fluid" alt="" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section> -->
+
+    <!--==========================
+      Buy Ticket Section
+    ============================-->
+    <!-- <section id="buy-tickets" class="section-with-bg">
+      <div class="container">
+        <div class="section-header" data-aos="zoom-in">
+          <h2>Buy Tickets</h2>
+          <p>
+            Velit consequatur consequatur inventore iste fugit unde omnis eum
+            aut.
+          </p>
+        </div>
+        <div class="product">
+          <div class="card">
+            <div class="left">
+              <img class="wordmark" src="img/Ticket/CR-black.png" alt="CrossRoad" />
+            </div>
+            <div class="right">
+              <img class="helmet" src="img/Ticket/CR22-Merchtemp-2.png" alt="helmet" />
+              <div class="productInfo">
+                <h1>
+                  CrossRoads<br />
+                  T-Shirt
+                </h1>
+                <h2>₹ 350</h2>
+                <div class="details">
+                  <h4>Avaible Size</h4>
+                  <p>S</p>
+                  <p>M</p>
+                  <p>L</p>
+                  <p>XL</p>
+                  <p>XXL</p>
+                </div>
+                <a href="#"> ADD TO CART </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section> -->
+  </main>
+
+  <!--==========================
+    Footer
+  ============================-->
+  <footer id="footer">
+    <div class="footer-top">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-4 col-md-6 footer-info">
+            <img src="img/logo.png" alt="TheEvenet" />
+            <p>
+              Crossroads is a national level inter-collegiate cultural and
+              technical fest of Mar Baselios College of Engineering and
+              Technology (MBCET), Trivandrum. Since it's inception in 2005,
+              Crossroads has been conducted annually.
+            </p>
+            <br />
+            <p>
+              Crossroads provides a platform for all college students to
+              showcase their talents and an arena to compete against the best
+              in the country.
+            </p>
+          </div>
+
+          <div class="col-lg-4 col-md-6 footer-links">
+            <h4>Useful Links</h4>
+            <ul class="pt-2">
+              <li><i class="fa fa-angle-right"></i> <a href="#">Home</a></li>
+              <li>
+                <i class="fa fa-angle-right"></i> <a href="https://vaisakh-rs.github.io/CR22_Events/">Events</a>
+              </li>
+              <li>
+                <i class="fa fa-instagram"></i> <a
+                  href="https://instagram.com/crossroadsmbcet?igshid=YmMyMTA2M2Y=">Instagram</a>
+              </li>
+            </ul>
+          </div>
+
+          <div class="col-lg-4 col-md-6 footer-contact">
+            <h4>Contact Us</h4>
+            <p>
+              Mar Baselios College of Engineering and Technology <br />
+              Mar Ivanios Vidyanagar<br />
+              Nalanchira <br />Trivandrum - 695015 <br />
+              <strong>Phone:</strong> 0471-2545866,68,72 <br />
+              <strong>Email:</strong> mbcet@mbcet.org<br />
+            </p>
+          </div>
+        </div>
+      </div>
     </div>
 
-    <div id="page">
-        <div id="hero" class="flex flex-col justify-center items-center">
-            <div class="logos-container">
-                <img src="assets/logo1-black.png" class="logo1" />
-
-                <div>
-                    <div class="logo2-container">
-                        <img src="assets/logo2-black.png" class="logo2" />
-                    </div>
-
-                    <div class="logo3-container">
-                        <img src="assets/logo3-black.png" class="logo3" />
-                    </div>
-                </div>
-            </div>
-
-            <div class="flex mt-6 p-8 lg:mt-[40px]">
-                <a class='hero-button-par' href="https://farzanshibu.github.io/CR-website/">
-                    <button class="hero__button button1">
-                        <img class="arrow1" src="./assets/arrow.png" />
-                        HOME
-                    </button>
-                </a>
-                <a class='hero-button-par' href="#events">
-                    <button class="hero__button button2">
-                        EVENTS
-                        <img class="arrow2" src="./assets/arrow.png" />
-                    </button>
-                </a>
-            </div>
-        </div>
-
-        <div id="events" class="bg-white text-white pt-8">
-            <div class="inline-block translate-x-[12px] md:scale-[1.5] md:translate-x-[80px] md:translate-y-[60px]  lg:scale-[2] lg:translate-x-[120px] lg:translate-y-[80px]">
-                <div class="xd">
-                    <div id="day-grid-text">
-                        <h1 id="events__day-text-1" class="text-[3rem] font-bold fon text-[#222]">DAY</h1>
-                    </div>
-
-                    <button id="day-grid-button1" class="arrow-buttons w-[10px] h-[10px]">
-                        <svg fill="#222" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-                            viewBox="0 0 490 490" style="enable-background:new 0 0 490 490;" xml:space="preserve">
-                            <path d="M490,474.459H0L245.009,15.541L490,474.459z"/>
-                        </svg>
-                    </button>
-
-                    <h1 id="day-grid-number">1</h1>
-
-                    <button id="day-grid-button2" class="arrow-buttons w-[10px] h-[10px]">
-                        <svg  fill="#222" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-                            viewBox="0 0 490 490" style="enable-background:new 0 0 490 490;" xml:space="preserve">
-                            <path d="M490,474.459H0L245.009,15.541L490,474.459z"/>
-                        </svg>
-                    </button>
-                </div>
-            </div>
-
-            <div id="events__slide-container" class="mt-[20px] md:mt-[120px] lg:mt-[180px] relative">
-                <div id="events__slide" class="flex align-items relative"></div>
-                <div id="events__line" class="top-[38vw] md:top-[24vw] lg:top-[16vw]"></div>
-            </div>
-        </div>
+    <div class="container">
+      <div class="copyright">
+        &copy; Copyright <strong>CrossRoads'22</strong>. All Rights Reserved
+      </div>
     </div>
+  </footer>
+  <!-- #footer -->
 
-    <script src="./main.js"></script>
+  <a href="#" class="back-to-top"><i class="fa fa-angle-up"></i></a>
+
+  <!-- JavaScript Libraries -->
+  <script src="lib/jquery/jquery.min.js"></script>
+  <script src="lib/jquery/jquery-migrate.min.js"></script>
+  <script src="lib/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="lib/easing/easing.min.js"></script>
+  <script src="lib/superfish/hoverIntent.js"></script>
+  <script src="lib/superfish/superfish.min.js"></script>
+  <script src="lib/wow/wow.min.js"></script>
+  <script src="lib/venobox/venobox.min.js"></script>
+  <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+
+  <!-- Template Main Javascript File -->
+  <script src="/main.js"></script>
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>
+    AOS.init();
+  </script>
 </body>
 
 </html>
