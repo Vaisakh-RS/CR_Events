@@ -1,0 +1,102 @@
+<!-- c186e5 8f00ff -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <mjta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Events</title>
+        <link rel="stylesheet" href="./css/main.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;500;900&family=Outfit:wght@900&family=Roboto+Condensed:ital,wght@0,300;0,400;0,700;1,700&family=Roboto:ital,wght@1,100&display=swap" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Manrope&display=swap" rel="stylesheet">
+        <link rel="icon" type="image/png" href="/assets/favicon.png">
+</head>
+
+<body>
+    <div id="loading-container">
+        <div id="loading">
+            <div id="loading1"></div>
+            <div id="loading2"></div>
+        </div>
+
+        <div id="loading-icon">
+            <img src="./assets/logo1.png" />
+        </div>
+    </div>
+
+    <div id="page">
+        <div id="hero" class="flex flex-col justify-center items-center">
+            <div class="logos-container">
+                <img src="assets/logo1-black.png" class="logo1" />
+
+                <div>
+                    <div class="logo2-container">
+                        <img src="assets/logo2-black.png" class="logo2" />
+                    </div>
+
+                    <div class="logo3-container">
+                        <img src="assets/logo3-black.png" class="logo3" />
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex mt-6 p-8 lg:mt-[40px]">
+                <a class='hero-button-par' href="https://farzanshibu.github.io/CR-website/">
+                    <button class="hero__button button1">
+                        <img class="arrow1" src="./assets/arrow.png" />
+                        HOME
+                    </button>
+                </a>
+                <a class='hero-button-par' href="#events">
+                    <button class="hero__button button2">
+                        EVENTS
+                        <img class="arrow2" src="./assets/arrow.png" />
+                    </button>
+                </a>
+            </div>
+        </div>
+
+        <div id="events" class="bg-white text-white pt-8">
+            <div class="inline-block translate-x-[12px] md:scale-[1.5] md:translate-x-[80px] md:translate-y-[60px]  lg:scale-[2] lg:translate-x-[120px] lg:translate-y-[80px]">
+                <div class="xd">
+                    <div id="day-grid-text">
+                        <h1 id="events__day-text-1" class="text-[3rem] font-bold fon text-[#222]">DAY</h1>
+                    </div>
+
+                    <button id="day-grid-button1" class="arrow-buttons w-[10px] h-[10px]">
+                        <svg fill="#222" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                            viewBox="0 0 490 490" style="enable-background:new 0 0 490 490;" xml:space="preserve">
+                            <path d="M490,474.459H0L245.009,15.541L490,474.459z"/>
+                        </svg>
+                    </button>
+
+                    <h1 id="day-grid-number">1</h1>
+
+                    <button id="day-grid-button2" class="arrow-buttons w-[10px] h-[10px]">
+                        <svg  fill="#222" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                            viewBox="0 0 490 490" style="enable-background:new 0 0 490 490;" xml:space="preserve">
+                            <path d="M490,474.459H0L245.009,15.541L490,474.459z"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <div id="events__slide-container" class="mt-[20px] md:mt-[120px] lg:mt-[180px] relative">
+                <div id="events__slide" class="flex align-items relative"></div>
+                <div id="events__line" class="top-[38vw] md:top-[24vw] lg:top-[16vw]"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="./main.js"></script>
+</body>
+
+</html>
