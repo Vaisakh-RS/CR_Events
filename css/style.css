@@ -839,14 +839,14 @@ body.mobile-nav-active #mobile-nav-toggle {
 }
 
 #about h2 {
-	font-size: 36px;
+	font-size: 48px;
 	font-weight: bold;
 	margin-bottom: 10px;
 	color: #fff;
 }
 
 #about h3 {
-	font-size: 18px;
+	font-size: 20px;
 	font-weight: bold;
 	text-transform: uppercase;
 	margin-bottom: 10px;
@@ -854,7 +854,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 }
 
 #about p {
-	font-size: 14px;
+	font-size: 20px;
 	margin-bottom: 20px;
 	color: #fff;
 }
@@ -1375,7 +1375,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 	background: #101522;
 	padding: 0 0 25px 0;
 	color: #eee;
-	font-size: 14px;
+	font-size: 16px;
 }
 
 #footer .footer-top {
@@ -1403,7 +1403,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 }
 
 #footer .footer-top .footer-info p {
-	font-size: 14px;
+	font-size: 18px;
 	line-height: 24px;
 	margin-bottom: 0;
 	font-family: "Satoshi", sans-serif;
